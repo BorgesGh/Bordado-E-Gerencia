@@ -1,4 +1,4 @@
-package org.pessoal.gestordecostura.domain;
+package org.pessoal.gestordecostura.model;
 
 public class Item {
     private String nome;
