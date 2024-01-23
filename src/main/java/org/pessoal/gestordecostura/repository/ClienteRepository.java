@@ -1,7 +1,10 @@
 package org.pessoal.gestordecostura.repository;
 
-import org.pessoal.gestordecostura.model.Cliente;
+import org.pessoal.gestordecostura.model.ClienteModel;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import java.util.UUID;
 
-public interface ClienteRepository extends JpaRepository<Cliente,Integer> {
+@Repository
+public interface ClienteRepository extends JpaRepository<ClienteModel, UUID> {
 }
