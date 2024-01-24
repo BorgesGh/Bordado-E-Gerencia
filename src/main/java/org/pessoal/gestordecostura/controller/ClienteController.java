@@ -20,7 +20,7 @@ public class ClienteController {
     @Autowired
     ClienteRepository clienteRepository;
 
-    @PostMapping("/clietesSave")
+    @PostMapping("/clientesSave")
     public ResponseEntity<ClienteModel> salvarCLiente (@RequestBody @Valid ClienteRecordDTO clienteRecordDTO){
         var ClienteModel = new ClienteModel(); // "var" é igual ao "auto" em c++
         BeanUtils.copyProperties(clienteRecordDTO,ClienteModel); //Copiando os dados do DTO para o model
@@ -45,6 +45,19 @@ public class ClienteController {
         var clienteModel = clienteO.get();
         BeanUtils.copyProperties(clienteO,clienteModel);
         return ResponseEntity.status(HttpStatus.OK).body(clienteRepository.save(clienteModel));
+
+    }
+
+    @DeleteMapping("/clienteDelete/{id}")
+    public ResponseEntity<Object> deletarCliente (@PathVariable(value = "id") UUID id){
+
+        Optional<ClienteModel> clienteO = clienteRepository.findById(id);
+
+        if(clienteO.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Id não foi encontrado!");
+        }
+        clienteRepository.delete(clienteO.get());
+        return ResponseEntity.status(HttpStatus.OK).body("Apagado com sucesso!");
 
     }
 
