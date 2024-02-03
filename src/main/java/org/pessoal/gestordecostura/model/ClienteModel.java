@@ -15,10 +15,12 @@ public class ClienteModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID idCliente;
+    private UUID id_Cliente;
     @Column(length = 30)
     private String nome;
     @Column(length = 11)
     private String telefone;
+    @Column
+    private Integer idade;
 
 }
