@@ -9,7 +9,7 @@ import java.util.UUID;
 
 @Entity
 @Data
-@Table(name = "Pedido")
+@Table
 public class PedidoModel {
     private static final long serialVersionUUID = 1L;
 
@@ -20,7 +20,7 @@ public class PedidoModel {
     private boolean finalizado;
     private Date data;
     @ManyToOne
-    @JoinColumn(name = "id_Cliente")
+    @JoinColumn
     private ClienteModel cliente;
 
 }
