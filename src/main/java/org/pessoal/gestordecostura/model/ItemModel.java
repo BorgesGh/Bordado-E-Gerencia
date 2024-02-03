@@ -1,6 +1,6 @@
 package org.pessoal.gestordecostura.model;
 
-public class Item {
+public class ItemModel {
     private String nome;
     private double valor;
 
